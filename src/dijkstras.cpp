@@ -55,17 +55,13 @@ vector<int> extract_shortest_path(const vector<int> &distances, const vector<int
     return path;
 }
 
-void test_dijkstras(const Graph &G, vector<int> prev, vector<int> dist) {
-    for (int i = 0; i < dist.size(); ++i) {
-        vector<int> path = extract_shortest_path(dist, prev, i);
-
-        for (int node : path) {
-            cout << node << " ";
-        }
-
-        cout << endl;
-        cout << "Total cost is " << dist[i] << endl;
+void print_path(const vector<int> &v, int total) {
+    for (int node : v) {
+        cout << node << " ";
     }
+
+    cout << endl;
+    cout << "Total cost is " << total << endl;
 }
 
 
@@ -76,7 +72,10 @@ int main() {
     vector<int> previous(G.size(), UNDEFINED);
     vector<int> distances = dijkstra_shortest_path(G, 0, previous);
 
-    test_dijkstras(G, previous, distances);
+    for (int i = 0; i < distances.size(); ++i) {
+        vector<int> path = extract_shortest_path(distances, previous, i);
+        print_path(path, distances[i]);
+    }
 
     return 0; 
 }
