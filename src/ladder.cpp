@@ -12,6 +12,7 @@ void error(string word1, string word2, string msg) {
 // Edit Distance Within?
 bool edit_distance_within(const std::string &str1, const std::string &str2, int d) {
     // Compares words to see if they are neighbors
+    return true;
 }
 
 // Is_Adjacent 
@@ -100,10 +101,11 @@ void print_word_ladder(const vector<string> &ladder) {
 
 // Verify Word Ladder
 void verify_word_ladder() {
+
 }
 
 
-int main() {
+// int main() {
 
-    return 0;
-}
+//     return 0;
+// }
